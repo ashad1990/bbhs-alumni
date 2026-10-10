@@ -1,14 +1,14 @@
 import news from "@/data/news.json";
 import events from "@/data/events.json";
 
-export type NewsItem = (typeof news)[number];
-export type EventItem = (typeof events)[number];
+export type NewsItem = (typeof news)[number] & { imageAlt?: string };
+export type EventItem = (typeof events)[number] & { imageAlt?: string };
 
-export const latestNews = [...news].sort((a, b) => b.date.localeCompare(a.date));
-export const upcomingEvents = events
+export const latestNews: NewsItem[] = [...news].sort((a, b) => b.date.localeCompare(a.date));
+export const upcomingEvents: EventItem[] = events
   .filter((event) => event.status === "upcoming")
   .sort((a, b) => a.date.localeCompare(b.date));
-export const pastEvents = events
+export const pastEvents: EventItem[] = events
   .filter((event) => event.status === "past")
   .sort((a, b) => b.date.localeCompare(a.date));
 

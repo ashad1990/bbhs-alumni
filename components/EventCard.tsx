@@ -1,11 +1,11 @@
-import Image from "next/image";
+import { PhotoPlaceholder } from "./PhotoPlaceholder";
 import { siteConfig } from "@/lib/config";
 import { formatDate, type EventItem } from "@/lib/content";
 import { Card } from "./Card";
 
 export function EventCard({ event }: { event: EventItem }) {
   return <Card>
-    <Image className="card-image" src={event.image} alt="" width={640} height={360} unoptimized />
+    <PhotoPlaceholder className="card-photo" image={event.image} alt={event.imageAlt} />
     <div className="card-body">
       <p className="eyebrow">{event.isExample ? "Sample event · Unconfirmed" : event.status === "past" ? "Past event" : "Save the date"}</p>
       <h3>{event.title}</h3>

@@ -17,7 +17,7 @@ export function BatchList() {
     </div>
     <p className="small" role="status">{filtered.length} {filtered.length === 1 ? "batch" : "batches"} found</p>
     <div className="batch-grid">{filtered.map((batch) => <article className="batch-card" key={batch.year}>
-      <h2>Batch of {batch.year}</h2>{batch.isExample && <p className="small">Sample batch · Positions open</p>}<ul>{batch.representatives.map((rep, index) => <li key={`${rep.name}-${index}`}>
+      <h2><span className="batch-label">Batch of</span><span className="batch-year">{batch.year}</span></h2>{batch.isExample && <p className="small">Sample batch · Positions open</p>}<ul>{batch.representatives.map((rep, index) => <li key={`${rep.name}-${index}`}>
         <span>{rep.name}</span>{rep.contact && /^(https:\/\/|mailto:)/i.test(rep.contact) && <a className="text-link" href={rep.contact}>Contact <span className="sr-only">{rep.name}</span> →</a>}
       </li>)}</ul>
     </article>)}</div>

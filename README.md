@@ -37,7 +37,8 @@ python3 -m http.server 3000 --directory out
 - Confirm membership policies, fee period, and committee appointments before presenting them as adopted policies.
 - Replace sample content with approved news, events, committee members, and consented representatives. Set each replaced entry's `isExample` to `false`; sample notices follow the JSON flags automatically.
 - Replace the example ledger with verified entries; set `fund.json`'s `isExample` to `false` only when every fund record is real.
-- Replace the original SVG campus illustration with an authorized local school photo if available. The current hero is a photo-band-style **illustration placeholder**, not a photo of the school. Use local assets, not hotlinks, and update captions and alt text.
+- **TODO: Collect reunion/campus photos — real photography is the single biggest visual upgrade available.**
+- Replace illustrated scenes with authorized local photos. Upload a `.jpg` to `public/images/` and update the matching JSON `image` field; no component or CSS changes are needed. See the photo guide below.
 - The inline bluebird mark and palette are original alumni placeholders, not official school branding. Replace the mark with an authorized asset only after permission is granted.
 - Check the generated `sitemap.xml`, `robots.txt`, and social preview after updating the production domain.
 
@@ -51,6 +52,8 @@ JSON rules: keep the surrounding `[` / `]` or `{` / `}`, use **double quotes** a
 | --- | --- |
 | `data/batchReps.json` | Add a graduation `year`, `isExample` flag, and 1–2 `representatives`, each with a `name`. Optional `contact` accepts `https://` or `mailto:` links. Obtain permission before publishing. The directory sorts newest first and searches years/names in the browser. |
 | `data/committee.json` | Change `name`, `role`, `description`, and `isExample` for each confirmed committee member. Add/remove an object to add/remove a member. |
+| `data/spotlights.json` | Featured alumni: `id`, `name`, `batchYear`, `whereNow`, `quote`, `image`, `imageAlt`, and `isExample`. All initial profiles and quotes are fictional samples. Obtain consent and approval before replacing them. |
+| `data/homepage.json` | Hero copy/photo, the signed `welcome` letter, `benefits`, mid-page `imageBand`, and the static `testimonial`. Keep welcome/testimonial `isExample: true` until the committee approves the letter and a genuine quote is supplied with consent. |
 | `data/events.json` | Each event needs a unique `id`, `title`, ISO `date`, `location`, `status` (`upcoming` or `past`), local `image`, `description`, and `isExample` flag. Change `status` after an event happens; dates do not automatically archive it. |
 | `data/news.json` | Add `slug`, `title`, `date`, `category`, `excerpt`, local `image`, and `isExample`. News sorts by date, newest first. For every slug, also create the matching Markdown file below. |
 | `content/news/<slug>.md` | Write the news story as plain text/Markdown. Its filename must exactly match the JSON slug, e.g. `building-our-network.md`. Use `## Heading`, paragraphs, `**bold**`, and `[link text](https://...)`. No frontmatter, HTML, or MDX is needed; raw HTML is ignored. Use lowercase, hyphen-separated slugs; changing one changes the URL. |
@@ -77,7 +80,16 @@ Example of a ledger row:
 
 Keep ledger rows in chronological order. Use either income or expense per row, non-negative amounts, and a clear description. The sample membership balance is ৳58,000 (৳60,000 income minus ৳2,000 expenses); the separate sample event balance is ৳4,000 and does not affect it.
 
-For images, upload an owned/authorized file to `public/images/` and reference it as `/images/filename.svg` (or `.jpg`/`.png`). Keep assets small. Existing card images are decorative; if a photo carries meaningful information, update the component's alt text appropriately.
+### Replace an illustration with a photograph
+
+`PhotoPlaceholder` renders original people-centered scenes: `illustration:reunion`, `illustration:graduation`, `illustration:conversation`, and `illustration:classroom`. Existing `/images/community.svg`, `/images/connections.svg`, `/images/campus.svg`, and `/images/hero.svg` content paths also select these scenes. The small “Original illustration · not a photograph” caption appears only for illustrations.
+
+1. Get permission from the photographer and the people pictured. Upload a reasonably compressed, owned/authorized `.jpg` to `public/images/`, e.g. `reunion-2026.jpg`. Do not use external image hotlinks.
+2. Change the relevant `image` value to `"/images/reunion-2026.jpg"` in `data/news.json`, `data/events.json`, `data/spotlights.json`, or `data/homepage.json` (`hero.image` / `imageBand.image`).
+3. Add/update `imageAlt` in the same JSON object if the photo conveys information, e.g. `"Alumni from several batches talking at a reunion"`. Use `""` for purely decorative photos. News and event entries support this optional field without code changes.
+4. Commit and rebuild. The photograph replaces the scene and the illustration caption disappears automatically, including on news article pages. Sample profile/event labels remain controlled independently by `isExample` — a real photo alone does not make a sample record genuine.
+
+Hero and full-width band photos crop to fill their frames; keep faces near the centre and preview at mobile/tablet/desktop widths. The About page's fixed classroom scene is separate from these JSON-driven images.
 
 See [CONTENT.md](CONTENT.md) for the quick editing cheat-sheet. Mission text and policy explanations live in their page files; coordinate policy changes with both the membership page and FAQ.
 
@@ -100,8 +112,8 @@ See [CONTENT.md](CONTENT.md) for the quick editing cheat-sheet. Mission text and
 
 ## Design and maintenance
 
-- CSS variables and Tailwind theme tokens live in `app/globals.css`: navy `#0B3C6B`, sky `#2E8BC0`, gold `#C9A227`, paper `#F7F6F2`, and charcoal `#1F2933`.
+- CSS variables and Tailwind theme tokens live in `app/globals.css`: navy `#0B3C6B`, sky `#2E8BC0`, gold `#C9A227`, paper `#F7F6F2`, charcoal `#1F2933`, clay `#C2603F`, deep teal `#155653`, and warm cream `#fbf0dd`. Clay is a decorative accent, not small text on white. Saturated sections use high-contrast light text; gold backgrounds use navy text. Hover lift/zoom is disabled for reduced-motion preferences.
 - Inter and Source Serif 4 are locally hosted through `next/font/local`; the fonts and their SIL Open Font License notices are in `public/fonts/`. Builds do not fetch Google Fonts.
-- All illustrations and the alumni bluebird mark are original placeholders. `public/og-image.png` is the social-compatible PNG version of `public/og-image.svg`. After editing the SVG, regenerate the PNG with the installed `sharp` package: `node -e 'require("sharp")("public/og-image.svg").png().toFile("public/og-image.png")'`.
+- All illustrations and the alumni bluebird mark are original placeholders, not official branding or depictions of actual alumni/campus. The human scenes live in `components/PhotoPlaceholder.tsx`. `public/og-image.png` is the social-compatible PNG version of `public/og-image.svg`. After editing the SVG, regenerate the PNG with the installed `sharp` package: `node -e 'require("sharp")("public/og-image.svg").png().toFile("public/og-image.png")'`.
 - Static export is enforced in `next.config.ts`; do not add server actions, API routes, external runtime fetching, or persistent storage.
 - Run `npm audit` when maintaining dependencies. At initial implementation, npm reports an unpatched `braces` stack-exhaustion advisory (`GHSA-vfj7-8cjw-p6xm`) through Next's **development-only ESLint dependency chain**. No user-supplied glob patterns reach the linter, and it is not shipped in the static site. The suggested downgrade to Next 14 lint configuration is not compatible maintenance for this Next 16 scaffold; monitor upstream for a fix.
