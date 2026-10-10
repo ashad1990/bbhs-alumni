@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Events", description: "Explore alumn
 export default function Events() {
   return <>
     <PageIntro eyebrow="Together again" title="Make time for your community."><p>Reunions, conversations, a day on the field — there are many ways to reconnect.</p></PageIntro>
-    <section className="section container"><p className="notice">All events currently listed are examples. Dates and venues are illustrative; no activities have been confirmed.</p>
+    <section className="section container">{[...upcomingEvents, ...pastEvents].some((event) => event.isExample) && <p className="notice">Events labelled &quot;Sample event&quot; are examples only. Their dates and venues are illustrative, not confirmed activities.</p>}
       <SectionHeading eyebrow="Looking ahead" title="Upcoming events" />
       <div className="card-grid">{upcomingEvents.map((event) => <EventCard key={event.id} event={event} />)}</div>{upcomingEvents.length === 0 && <p>No upcoming events yet. Check back for updates.</p>}
     </section>

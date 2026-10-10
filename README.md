@@ -35,7 +35,7 @@ python3 -m http.server 3000 --directory out
 - Edit `lib/config.ts`: set `url` to the full production HTTPS origin (no trailing slash), replace `registrationUrl` with the real Google Form URL, and replace the email and Facebook group placeholders. Every registration/join/volunteer CTA uses this one form URL.
 - Create a free Google Form with only necessary fields. Keep responses private; do not publish a response spreadsheet or add member personal data to git. The placeholder currently opens the Google Forms homepage.
 - Confirm membership policies, fee period, and committee appointments before presenting them as adopted policies.
-- Replace sample content with approved news, events, and consented representatives. Update the accompanying sample notices in the relevant pages when launching real content.
+- Replace sample content with approved news, events, committee members, and consented representatives. Set each replaced entry's `isExample` to `false`; sample notices follow the JSON flags automatically.
 - Replace the example ledger with verified entries; set `fund.json`'s `isExample` to `false` only when every fund record is real.
 - Replace the original SVG campus illustration with an authorized local school photo if available. The current hero is a photo-band-style **illustration placeholder**, not a photo of the school. Use local assets, not hotlinks, and update captions and alt text.
 - The inline bluebird mark and palette are original alumni placeholders, not official school branding. Replace the mark with an authorized asset only after permission is granted.
@@ -49,8 +49,8 @@ JSON rules: keep the surrounding `[` / `]` or `{` / `}`, use **double quotes** a
 
 | File | What to edit |
 | --- | --- |
-| `data/batchReps.json` | Add a graduation `year` and 1–2 `representatives`, each with a `name`. Optional `contact` accepts `https://` or `mailto:` links. Obtain permission before publishing. The directory sorts newest first and searches years/names in the browser. |
-| `data/committee.json` | Change `name`, `role`, and `description` for each confirmed committee member. Add/remove an object to add/remove a member. |
+| `data/batchReps.json` | Add a graduation `year`, `isExample` flag, and 1–2 `representatives`, each with a `name`. Optional `contact` accepts `https://` or `mailto:` links. Obtain permission before publishing. The directory sorts newest first and searches years/names in the browser. |
+| `data/committee.json` | Change `name`, `role`, `description`, and `isExample` for each confirmed committee member. Add/remove an object to add/remove a member. |
 | `data/events.json` | Each event needs a unique `id`, `title`, ISO `date`, `location`, `status` (`upcoming` or `past`), local `image`, `description`, and `isExample` flag. Change `status` after an event happens; dates do not automatically archive it. |
 | `data/news.json` | Add `slug`, `title`, `date`, `category`, `excerpt`, local `image`, and `isExample`. News sorts by date, newest first. For every slug, also create the matching Markdown file below. |
 | `content/news/<slug>.md` | Write the news story as plain text/Markdown. Its filename must exactly match the JSON slug, e.g. `building-our-network.md`. Use `## Heading`, paragraphs, `**bold**`, and `[link text](https://...)`. No frontmatter, HTML, or MDX is needed; raw HTML is ignored. Use lowercase, hyphen-separated slugs; changing one changes the URL. |
@@ -62,6 +62,7 @@ Example of a representative entry (replace the illustrative name and obtain cons
 ```json
 {
   "year": 2026,
+  "isExample": false,
   "representatives": [
     { "name": "Representative name", "contact": "mailto:representative@example.com" }
   ]

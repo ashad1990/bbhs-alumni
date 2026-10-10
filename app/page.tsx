@@ -36,7 +36,7 @@ export default function Home() {
       <div className="card-grid">{latestNews.slice(0, 3).map((item) => <NewsCard key={item.slug} item={item} />)}</div>
     </section>
     <section className="section section-white"><div className="container">
-      <SectionHeading eyebrow="Make time for connection" title="On the horizon" description="Illustrative activities for a future alumni calendar — not confirmed events." href="/events" linkText="All events" />
+      <SectionHeading eyebrow="Make time for connection" title="On the horizon" description={upcomingEvents.some((event) => event.isExample) ? "Labelled sample activities are ideas for a future alumni calendar — not confirmed events." : "Find your next opportunity to reconnect with the Blue Bird community."} href="/events" linkText="All events" />
       <div className="card-grid">{upcomingEvents.slice(0, 3).map((event) => <EventCard key={event.id} event={event} />)}</div>
     </div></section>
     <section className="section container transparency-teaser">

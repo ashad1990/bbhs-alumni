@@ -17,8 +17,8 @@ export default function About() {
       <figure><Image src="/images/campus.svg" alt="Original illustration of a campus courtyard with trees, used as a placeholder" width={1000} height={700} unoptimized /><figcaption>Illustrated placeholder — not a depiction of the actual campus.</figcaption><div className="heritage-note"><p className="eyebrow">A shared timeline</p><p><strong>1961</strong> · Founded as a primary school</p><p><strong>2006</strong> · College section added</p><p><strong>Today</strong> · An alumni network in the making</p></div></figure>
     </section>
     <section className="section section-white"><div className="container">
-      <SectionHeading eyebrow="People behind the idea" title="The committee" description="Proposed roles only. Committee members have not been appointed; names will be published after confirmation and consent." />
-      <div className="committee-grid">{committee.map((member) => <Card className="card-body" key={member.role}><p className="eyebrow">{member.role}</p><h3>{member.name}</h3><p>{member.description}</p></Card>)}</div>
+      <SectionHeading eyebrow="People behind the idea" title="The committee" description={committee.some((member) => member.isExample) ? "Some roles below are proposed placeholders, not appointed members. Names are published only after confirmation and consent." : "Meet the volunteers helping our alumni community stay connected."} />
+      <div className="committee-grid">{committee.map((member) => <Card className="card-body" key={member.role}><p className="eyebrow">{member.role}{member.isExample && " · Proposed role"}</p><h3>{member.name}</h3><p>{member.description}</p></Card>)}</div>
     </div></section><CTABanner />
   </>;
 }

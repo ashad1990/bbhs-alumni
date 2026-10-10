@@ -1,8 +1,8 @@
 [
-  { "year": 1996, "representatives": [{ "name": "Sample representative — position open" }] },
-  { "year": 2006, "representatives": [{ "name": "Sample representative — position open" }, { "name": "Sample co-representative — position open" }] },
-  { "year": 2016, "representatives": [{ "name": "Sample representative — position open" }] },
-  { "year": 2024, "representatives": [{ "name": "Sample representative — position open" }] },
-  { "year": 2025, "representatives": [{ "name": "Sample representative — position open" }, { "name": "Sample co-representative — position open" }] },
-  { "year": 2026, "representatives": [{ "name": "Sample representative — position open" }] }
+  { "year": 1996, "isExample": true, "representatives": [{ "name": "Sample representative — position open" }] },
+  { "year": 2006, "isExample": true, "representatives": [{ "name": "Sample representative — position open" }, { "name": "Sample co-representative — position open" }] },
+  { "year": 2016, "isExample": true, "representatives": [{ "name": "Sample representative — position open" }] },
+  { "year": 2024, "isExample": true, "representatives": [{ "name": "Sample representative — position open" }] },
+  { "year": 2025, "isExample": true, "representatives": [{ "name": "Sample representative — position open" }, { "name": "Sample co-representative — position open" }] },
+  { "year": 2026, "isExample": true, "representatives": [{ "name": "Sample representative — position open" }] }
 ]

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import batchReps from "@/data/batchReps.json";
 
-type Batch = { year: number; representatives: { name: string; contact?: string }[] };
+type Batch = { year: number; isExample: boolean; representatives: { name: string; contact?: string }[] };
 
 export function BatchList() {
   const [query, setQuery] = useState("");
@@ -17,7 +17,7 @@ export function BatchList() {
     </div>
     <p className="small" role="status">{filtered.length} {filtered.length === 1 ? "batch" : "batches"} found</p>
     <div className="batch-grid">{filtered.map((batch) => <article className="batch-card" key={batch.year}>
-      <h2>Batch of {batch.year}</h2><ul>{batch.representatives.map((rep, index) => <li key={`${rep.name}-${index}`}>
+      <h2>Batch of {batch.year}</h2>{batch.isExample && <p className="small">Sample batch · Positions open</p>}<ul>{batch.representatives.map((rep, index) => <li key={`${rep.name}-${index}`}>
         <span>{rep.name}</span>{rep.contact && /^(https:\/\/|mailto:)/i.test(rep.contact) && <a className="text-link" href={rep.contact}>Contact <span className="sr-only">{rep.name}</span> →</a>}
       </li>)}</ul>
     </article>)}</div>

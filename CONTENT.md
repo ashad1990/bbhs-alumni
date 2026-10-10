@@ -6,8 +6,8 @@
 
 | To change… | Edit… |
 | --- | --- |
-| Batches and 1–2 representatives per year | `data/batchReps.json`: `year`, `representatives[].name`, optional `contact` (`https://` or `mailto:`). Publish contact details only with consent. |
-| Committee | `data/committee.json`: `name`, `role`, `description`. |
+| Batches and 1–2 representatives per year | `data/batchReps.json`: `year`, `isExample`, `representatives[].name`, optional `contact` (`https://` or `mailto:`). Publish contact details only with consent. |
+| Committee | `data/committee.json`: `name`, `role`, `description`, `isExample`. |
 | Events | `data/events.json`: unique `id`, `title`, `date`, `location`, `status`, `image`, `description`, `isExample`. Set `status` to `past` to archive. |
 | News cards | `data/news.json`: unique hyphenated lowercase `slug`, `title`, `date`, `category`, `excerpt`, `image`, `isExample`. |
 | News story | Create/edit `content/news/<same-slug>.md`. Plain paragraphs, `## Headings`, `**bold**`, Markdown links; no frontmatter or HTML. Every news entry needs a matching file. |
@@ -20,6 +20,6 @@
 
 **Dates:** `YYYY-MM-DD`. **Numbers:** `200`, not `"৳200"`. **Flags:** `true`/`false`. No trailing commas or comments in JSON.
 
-**Before launch:** replace all sample people/events/news/transactions; confirm membership policy; update the page-level sample notices. Set `isExample: false` only for genuine records. Free membership for the last three batches is a **proposal**, not an adopted rule.
+**Before launch:** replace all sample people/events/news/transactions; confirm membership policy. Set `isExample: false` only for genuine records; sample notices follow these flags automatically. Free membership for the last three batches is a **proposal**, not an adopted rule.
 
 Never publish Google Form responses, private alumni lists, payment details, or credentials. See [README.md](README.md) for full examples, local commands, and deployment/DNS instructions.
