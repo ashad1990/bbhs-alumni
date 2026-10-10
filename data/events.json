@@ -1,0 +1,6 @@
+[
+  { "id": "welcome-meetup", "title": "An afternoon of old friends", "date": "2027-01-16", "location": "Sylhet — venue to be confirmed", "status": "upcoming", "image": "/images/community.svg", "description": "Sample event: a relaxed welcome meetup across batches. Date and venue are illustrative, not confirmed.", "isExample": true },
+  { "id": "career-conversations", "title": "Career conversations", "date": "2027-02-20", "location": "Online — details to be confirmed", "status": "upcoming", "image": "/images/connections.svg", "description": "Sample event: alumni sharing experience with those starting their careers. No event is confirmed yet.", "isExample": true },
+  { "id": "sports-day", "title": "A day on the field", "date": "2027-03-13", "location": "Sylhet — venue to be confirmed", "status": "upcoming", "image": "/images/community.svg", "description": "Sample event: sports, conversation, and time together. Replace with an approved event before publishing.", "isExample": true },
+  { "id": "planning-circle", "title": "Alumni planning circle", "date": "2026-09-12", "location": "Illustrative online meeting", "status": "past", "image": "/images/connections.svg", "description": "Example archive entry only; this is not a claim that a meeting took place.", "isExample": true }
+]
