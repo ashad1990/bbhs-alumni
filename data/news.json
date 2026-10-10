@@ -1,0 +1,5 @@
+[
+  { "slug": "building-our-network", "title": "A network built by all of us", "date": "2026-10-08", "category": "Our community", "excerpt": "A simple starting point for reconnecting generations of Blue Bird alumni.", "image": "/images/community.svg", "isExample": true },
+  { "slug": "batch-representatives", "title": "Every batch has a part to play", "date": "2026-10-07", "category": "Get involved", "excerpt": "The proposal: one or two volunteers from each batch to help classmates reconnect.", "image": "/images/connections.svg", "isExample": true },
+  { "slug": "open-fund", "title": "A small fee. An open record.", "date": "2026-10-06", "category": "Transparency", "excerpt": "Explore the proposed ৳200 membership allocation and our commitment to clear records.", "image": "/images/campus.svg", "isExample": true }
+]

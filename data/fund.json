@@ -1,0 +1,22 @@
+{
+  "membershipFee": 200,
+  "isExample": true,
+  "allocations": [
+    { "label": "Website & digital system", "amount": 50, "color": "#0B3C6B" },
+    { "label": "Student/alumni support", "amount": 40, "color": "#2E8BC0" },
+    { "label": "Events & networking", "amount": 40, "color": "#C9A227" },
+    { "label": "Membership & administration", "amount": 20, "color": "#496D89" },
+    { "label": "Communication & promotion", "amount": 20, "color": "#8C6C19" },
+    { "label": "School/community activities", "amount": 20, "color": "#49766B" },
+    { "label": "Emergency fund", "amount": 10, "color": "#65717C" }
+  ],
+  "openingBalance": 0,
+  "ledger": [
+    { "date": "2026-10-01", "description": "Example: 300 memberships × ৳200", "income": 60000, "expense": 0 },
+    { "date": "2026-10-02", "description": "Example: digital system costs", "income": 0, "expense": 1500 },
+    { "date": "2026-10-03", "description": "Example: communication materials", "income": 0, "expense": 500 }
+  ],
+  "separateFunds": [
+    { "name": "Example reunion fund", "income": 5000, "expense": 1000, "description": "Illustrative separate sponsorship and event expenses; not real transactions." }
+  ]
+}
