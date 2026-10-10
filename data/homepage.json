@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "eyebrow": "Blue Bird High School and College · Sylhet",
+    "title": "A shared beginning.",
+    "accent": "A lifelong connection.",
+    "description": "From Mirar Maidan to wherever life takes us. Reconnect with classmates, share opportunities, and help the next generation soar.",
+    "image": "illustration:reunion",
+    "imageAlt": ""
+  },
+  "welcome": {
+    "eyebrow": "A letter to our Blue Bird family",
+    "title": "You belong here.",
+    "paragraphs": [
+      "Perhaps you still remember a classroom, a favourite teacher, or the friend who saved you a seat. Whatever your batch, those small moments are part of a story we share.",
+      "We hope to build a place to pick up old conversations and begin new ones. Come with your memories, your ideas, and a little time for one another. Let's make the next chapter together."
+    ],
+    "signature": "With warm wishes,",
+    "author": "The alumni committee",
+    "isExample": true
+  },
+  "benefits": [
+    { "number": "01", "title": "Find your people", "description": "Reconnect with classmates and meet alumni across generations." },
+    { "number": "02", "title": "Share a career connection", "description": "Exchange experience, mentoring, and opportunities with fellow alumni." },
+    { "number": "03", "title": "Build something together", "description": "Discover business connections and support each other's ideas." },
+    { "number": "04", "title": "Come back together", "description": "Make room for reunions, familiar faces, and new memories." },
+    { "number": "05", "title": "Stay part of the community", "description": "Enjoy sports and social events that keep our connection alive." }
+  ],
+  "imageBand": {
+    "eyebrow": "Across batches. Across borders.",
+    "title": "There's always a place for you.",
+    "image": "illustration:graduation",
+    "imageAlt": ""
+  },
+  "testimonial": {
+    "quote": "Years later, it's not just the lessons we remember. It's the people who made us feel we belonged.",
+    "author": "A Blue Bird voice",
+    "batchYear": 2015,
+    "isExample": true
+  }
+}

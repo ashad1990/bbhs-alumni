@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mentor",
+    "name": "Sample alum · A",
+    "batchYear": 2008,
+    "whereNow": "An educator helping the next generation find their voice.",
+    "quote": "The best thing we can pass on is the confidence someone once gave us.",
+    "image": "illustration:classroom",
+    "imageAlt": "",
+    "isExample": true
+  },
+  {
+    "id": "connector",
+    "name": "Sample alum · B",
+    "batchYear": 2015,
+    "whereNow": "An engineer making room for conversations and mentoring.",
+    "quote": "A familiar school name can turn a stranger into a friend.",
+    "image": "illustration:conversation",
+    "imageAlt": "",
+    "isExample": true
+  },
+  {
+    "id": "graduate",
+    "name": "Sample alum · C",
+    "batchYear": 2024,
+    "whereNow": "A university student discovering a new chapter.",
+    "quote": "We may be starting different journeys, but we never start alone.",
+    "image": "illustration:graduation",
+    "imageAlt": "",
+    "isExample": true
+  }
+]

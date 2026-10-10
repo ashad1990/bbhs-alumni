@@ -1,11 +1,11 @@
-import Image from "next/image";
+import { PhotoPlaceholder } from "./PhotoPlaceholder";
 import Link from "next/link";
 import { formatDate, type NewsItem } from "@/lib/content";
 import { Card } from "./Card";
 
 export function NewsCard({ item }: { item: NewsItem }) {
   return <Card>
-    <Image className="card-image" src={item.image} alt="" width={640} height={360} unoptimized />
+    <PhotoPlaceholder className="card-photo" image={item.image} alt={item.imageAlt} />
     <div className="card-body">
       <p className="eyebrow">{item.category}</p>
       <h3><Link href={`/news/${item.slug}`}>{item.title}</Link></h3>

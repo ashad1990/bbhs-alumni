@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import Image from "next/image";
+import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
@@ -38,7 +38,7 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
     <Link className="text-link" href="/news">← All news & updates</Link>
     <p className="eyebrow">{item.category}</p><h1>{item.title}</h1>
     <p className="small"><time dateTime={item.date}>{formatDate(item.date)}</time>{item.isExample && " · Sample update"}</p>
-    <Image className="article-image" src={item.image} alt="Original editorial illustration used as a placeholder" width={1000} height={600} unoptimized />
+    <PhotoPlaceholder className="article-image" image={item.image} alt={item.imageAlt} />
     <div className="prose"><ReactMarkdown skipHtml>{markdown}</ReactMarkdown></div>
   </article>;
 }
